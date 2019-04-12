@@ -1,0 +1,36 @@
+<ion-header no-border>
+  <ion-toolbar color="dark">
+    <ion-title>
+      Secciones
+    </ion-title>
+  </ion-toolbar>
+ 
+  <ion-segment scrollable 
+               mode="md" 
+               color="primary"
+               (ionChange)="cambioCategoria( $event )">
+  <!-- El Evento ionChange es el que tenemos que llamar para detectar un cambio en el ionSegment  -->
+  
+   
+    <ion-segment-button  mode="md" 
+                       *ngFor="let seccion of secciones"
+                       [value]="seccion">
+                      <ion-label text-capitalize>{{seccion}}</ion-label>
+  </ion-segment-button>
+
+</ion-segment>
+
+</ion-header>
+
+<ion-content color="dark">
+
+  <app-noticias [noticias]="noticias"></app-noticias>
+
+  <ion-infinite-scroll threshold="150px%" 
+                        (ionInfinite)="loadData($event)">
+     <ion-infinite-scroll-content loadingSpinner="crescent" 
+                                  loadingText="Cargando data...">
+     </ion-infinite-scroll-content>
+   </ion-infinite-scroll>
+
+</ion-content>

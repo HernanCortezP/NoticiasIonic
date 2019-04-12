@@ -1,0 +1,22 @@
+<ion-header no-border>
+  <ion-toolbar color="dark">
+    <ion-title>
+      Osapi News
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="dark">
+
+<!-- Lo que esta en llaves cuadradas es pq esta pidieno que le mande las noticias del input en el componente
+y las noticias en comillas son las noticias que estan en el ngOnIniti el tab1.ts -->
+  <app-noticias [noticias]="noticias"></app-noticias>
+
+   <ion-infinite-scroll threshold="150px%" 
+                        (ionInfinite)="loadData($event)">
+     <ion-infinite-scroll-content loadingSpinner="crescent" 
+                                  loadingText="Cargando data...">
+     </ion-infinite-scroll-content>
+   </ion-infinite-scroll>
+    
+</ion-content>

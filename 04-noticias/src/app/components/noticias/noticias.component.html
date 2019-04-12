@@ -1,0 +1,17 @@
+<ion-grid fixed>
+    <ion-row>
+    <ion-col size="12" size-lg="3" size-md="4" size-sm="6"size-xs="12" 
+    *ngFor="let noticia of noticias; let i = index">
+
+
+<!-- lo q esta entre comillas de favorits es el input y el qe esta en corchete es el elemento que esta esperando del
+componente hijo -->
+   <app-noticia [enFavoritos]="enFavoritos"
+                [noticia]="noticia"
+                [indice]="i"></app-noticia>
+  
+    </ion-col>
+  
+    </ion-row>
+  
+    </ion-grid>
